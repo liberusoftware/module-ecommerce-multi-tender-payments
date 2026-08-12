@@ -1,0 +1,19 @@
+{
+    "name": "ecommerce-multi-tender-payments",
+    "description": "Owns the payment plan and its arithmetic. It never moves money and it never holds a balance.",
+    "version": "0.1.0",
+    "category": "capability",
+    "provider": "Liberu\\Ecommerce\\MultiTenderPayments\\MultiTenderPaymentsServiceProvider",
+    "features": [
+        "Split payments across any number of tenders in a caller-declared order",
+        "Gift card and store credit tenders recorded without ever asking what a card is worth",
+        "Deposits recorded as ordinary tenders against the same fold",
+        "Instalment references recorded as external identifiers only",
+        "Partial payments as the normal case, with a short tender partly spent",
+        "Outstanding balance computed as a fold over an append-only ledger",
+        "Exact integer allocation with largest-remainder distribution"
+    ],
+    "requires": {
+        "packages": []
+    }
+}
