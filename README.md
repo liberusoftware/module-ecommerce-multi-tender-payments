@@ -115,6 +115,12 @@ below follows from that.
   `orders.payment_method` onto a `TenderKind` is a per-deployment decision, and
   an automated guess would be dishonest. `docs/adoption.md` sets out the manual
   path.
+- **No tenant or site column.** The host's fault 7 is fixed here by holding no
+  user foreign key at all rather than by adding a tenancy column: a plan keys on
+  an opaque `order_reference` and nothing else. Scoping a query to a tenant is
+  therefore the host's job, through the same resolvers it already binds. If a
+  deployment needs plans partitioned in the database rather than at the seam,
+  that is a `0.2.0` column and a migration edited in place, not a workaround.
 - **Tax is somebody's input, not this module's concern.** Nothing here looks up
   a rate, knows a jurisdiction, or compounds anything.
 
