@@ -56,7 +56,9 @@ it('declares its foreign keys, whether or not the driver enforces them', functio
         $byColumn[implode(',', $key['columns'])] = $key['foreign_table'];
     }
 
-    expect($byColumn)->toBe([
+    // toEqual, not toBe: the driver decides what order it reports keys in and
+    // that order is not part of the schema.
+    expect($byColumn)->toEqual([
         'plan_id' => 'multi_tender_payment_plans',
         'reverses_tender_id' => 'multi_tender_payment_tenders',
     ]);
